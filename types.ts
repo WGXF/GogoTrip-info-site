@@ -18,4 +18,4 @@ export enum SectionId {
   FAQ = 'faq'
 }
 
-export type Page = 'home' | 'features' | 'pricing' | 'about' | 'merchants' | 'blog';
+export type Page = 'home' | 'features' | 'pricing' | 'about' | 'merchants' | 'blog' | 'contact' | 'privacy' | 'terms';

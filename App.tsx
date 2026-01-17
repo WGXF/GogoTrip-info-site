@@ -8,6 +8,9 @@ import Pricing from './components/Pricing';
 import About from './components/About';
 import Merchants from './components/Merchants';
 import Blog from './components/Blog';
+import Contact from './components/Contact';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
 import { Page } from './types';
 
 function App() {
@@ -54,6 +57,12 @@ function App() {
         {activePage === 'merchants' && <Merchants />}
 
         {activePage === 'blog' && <Blog />}
+        
+        {activePage === 'contact' && <Contact />}
+
+        {activePage === 'privacy' && <PrivacyPolicy />}
+
+        {activePage === 'terms' && <TermsOfService />}
 
         {/* Global Call to Action Banner (only on Home and Features to avoid clutter on Pricing/About/Merchants) */}
         {(activePage === 'home' || activePage === 'features') && (
@@ -76,7 +85,7 @@ function App() {
         )}
       </main>
       
-      <Footer />
+      <Footer onNavigate={setActivePage} />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { SectionId, TravelTip } from '../types';
 import { generateTravelPreview } from '../services/geminiService';
@@ -52,7 +53,7 @@ const GeminiDemo: React.FC = () => {
             Taste the Magic
           </h2>
           <p className="text-lg text-slate-600">
-            See how GogoTrip generates personalized suggestions instantly. Enter a city below.
+            See how GoGoTrip generates personalized suggestions instantly. Enter a city below.
           </p>
         </div>
 

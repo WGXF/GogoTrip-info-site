@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Heart, Globe, Shield, Zap } from 'lucide-react';
 
@@ -12,7 +13,7 @@ const About: React.FC = () => {
               We're changing how the world <span className="text-blue-600">explores</span>
             </h1>
             <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-              GogoTrip was born from a simple frustration: travel is amazing, but planning it is a headache. We believe that everyone deserves a perfectly tailored journey without spending weeks on research.
+              GoGoTrip was born from a simple frustration: travel is amazing, but planning it is a headache. We believe that everyone deserves a perfectly tailored journey without spending weeks on research.
             </p>
             <p className="text-lg text-slate-600 leading-relaxed">
               By combining cutting-edge AI with a passion for discovery, we've built a platform that understands your travel style better than you do. From hidden alleyways in Tokyo to the best tacos in Austin, we're here to guide you.

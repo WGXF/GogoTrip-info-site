@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { SectionId } from '../types';
 import { Map, Compass, ArrowRight } from 'lucide-react';
@@ -33,7 +34,7 @@ const Hero: React.FC = () => {
           </h1>
           
           <p className="text-lg lg:text-xl text-slate-300 max-w-xl">
-            Stop spending hours researching. GogoTrip builds personalized itineraries, tracks your budget, and finds hidden gems in seconds.
+            Stop spending hours researching. GoGoTrip builds personalized itineraries, tracks your budget, and finds hidden gems in seconds.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">

@@ -11,13 +11,13 @@ const Pricing: React.FC = () => {
       features: [
         '3 AI Trip Plans per month',
         'Basic Itinerary Builder',
-        'Public Trip Sharing',
+        'Smart Checklists',
         'Standard Support'
       ],
       notIncluded: [
         'Real-time Budget Tracking',
-        'Offline Access',
-        'Collaboration Tools'
+        'Instant Translation',
+        'Calendar Sync'
       ],
       cta: 'Start for Free',
       popular: false
@@ -30,14 +30,13 @@ const Pricing: React.FC = () => {
       features: [
         'Unlimited AI Trip Plans',
         'Smart Budget Tracking',
-        'Offline Maps & Itineraries',
+        'Instant AI Translation',
         'Priority Support',
         'Ad-free Experience',
-        'Export to Calendar'
+        'Advanced Calendar Sync',
+        'Checklists with Reminders'
       ],
-      notIncluded: [
-        'Collaboration Tools'
-      ],
+      notIncluded: [],
       cta: 'Go Pro',
       popular: true
     }
@@ -85,7 +84,7 @@ const Pricing: React.FC = () => {
                     <span className="text-slate-700 text-sm">{feature}</span>
                   </div>
                 ))}
-                {plan.notIncluded.map((feature, idx) => (
+                {plan.notIncluded && plan.notIncluded.map((feature, idx) => (
                   <div key={idx} className="flex items-start gap-3 opacity-50">
                     <div className="mt-1 p-0.5 bg-slate-100 rounded-full">
                       <X className="w-3 h-3 text-slate-500" />

@@ -1,6 +1,14 @@
+
 import React from 'react';
 import { SectionId } from '../types';
-import { Sparkles, DollarSign, MapPin, Users, Smartphone, Globe } from 'lucide-react';
+import { 
+  Sparkles, 
+  DollarSign, 
+  Globe, 
+  Languages, 
+  ClipboardCheck, 
+  CalendarRange 
+} from 'lucide-react';
 
 const features = [
   {
@@ -16,28 +24,28 @@ const features = [
     color: 'bg-green-100 text-green-600'
   },
   {
-    icon: MapPin,
-    title: 'Interactive Maps',
-    description: 'Visualize your route. Drag and drop locations to optimize travel time between stops.',
-    color: 'bg-blue-100 text-blue-600'
+    icon: Globe,
+    title: 'Local Exploring',
+    description: 'Get recommendations from locals and AI for authentic food, culture, and hidden spots.',
+    color: 'bg-cyan-100 text-cyan-600'
   },
   {
-    icon: Users,
-    title: 'Collaborative Trips',
-    description: 'Invite friends to your trip board. Vote on activities and build the perfect vacation together.',
+    icon: Languages,
+    title: 'Instant Translation',
+    description: 'Communicate effortlessly. Use AI to translate menus, street signs, and local conversations in real-time.',
     color: 'bg-orange-100 text-orange-600'
   },
   {
-    icon: Smartphone,
-    title: 'Offline Access',
-    description: 'No data? No problem. Access your itinerary and tickets even when you are off the grid.',
-    color: 'bg-pink-100 text-pink-600'
+    icon: ClipboardCheck,
+    title: 'Smart Checklists',
+    description: 'Create to-do lists for packing or tasks, and set reminder times so you never miss a beat.',
+    color: 'bg-rose-100 text-rose-600'
   },
   {
-    icon: Globe,
-    title: 'Local Insights',
-    description: 'Get recommendations from locals and AI for authentic food, culture, and hidden spots.',
-    color: 'bg-cyan-100 text-cyan-600'
+    icon: CalendarRange,
+    title: 'Calendar Sync',
+    description: 'Add your planned trips directly to your personal calendar and manage your full itinerary in one place.',
+    color: 'bg-blue-100 text-blue-600'
   }
 ];
 
@@ -51,7 +59,7 @@ const Features: React.FC = () => {
             <span className="gradient-text">Perfect Trip</span>
           </h2>
           <p className="text-slate-600 text-lg">
-            GogoTrip combines advanced AI with practical travel tools to create the ultimate companion for your journeys.
+            GoGoTrip combines advanced AI with practical travel tools to create the ultimate companion for your journeys.
           </p>
         </div>
 
