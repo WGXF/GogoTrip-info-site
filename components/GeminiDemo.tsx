@@ -175,7 +175,7 @@ const GeminiDemo: React.FC = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800"
                 >
-                    Build full trip in App <span className="ml-1">→</span>
+                    Build full trip in GogoTrip <span className="ml-1">→</span>
                 </a>
             </div>
         )}

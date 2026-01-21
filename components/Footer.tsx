@@ -2,6 +2,7 @@
 import React from 'react';
 import { Plane } from 'lucide-react';
 import { Page } from '../types';
+import LogoSvg from '@/icon/logo/logo.svg';
 
 interface FooterProps {
   onNavigate: (page: Page) => void;
@@ -19,9 +20,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-6 cursor-pointer" onClick={() => handleNav('home')}>
-              <div className="bg-blue-600 p-2 rounded-lg">
-                <Plane className="w-5 h-5 text-white" />
-              </div>
+              <img src={LogoSvg} alt="GogoTrip Logo" className="w-10 h-10 rounded-xl" />
               <span className="text-xl font-bold">GoGoTrip</span>
             </div>
             <p className="text-slate-400 max-w-sm mb-6">
