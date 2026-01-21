@@ -64,7 +64,7 @@ function App() {
 
         {activePage === 'terms' && <TermsOfService />}
 
-        {/* Global Call to Action Banner (only on Home and Features to avoid clutter on Pricing/About/Merchants) */}
+        {/* Global Call to Action Banner (only on Home and Features to avoid clutter on Pricing/About/Merchants) 
         {(activePage === 'home' || activePage === 'features') && (
           <section className="py-20 bg-slate-900">
               <div className="max-w-4xl mx-auto px-6 text-center text-white">
@@ -72,8 +72,8 @@ function App() {
                   <p className="text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
                       Join thousands of travelers who are planning better, faster, and smarter with GogoTrip.
                   </p>
-                  <a 
-                      href="https://gogotrip.teocodes.com/"
+                  <a
+                      href="https://gogotrip.teocodes.com"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block px-10 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-xl shadow-blue-900/50"
@@ -82,7 +82,7 @@ function App() {
                   </a>
               </div>
           </section>
-        )}
+        )}*/}
       </main>
       
       <Footer onNavigate={setActivePage} />

@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="https://gogotrip.teocodes.com/"
+              href="http://127.0.0.1:3000/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all shadow-lg shadow-blue-600/30 group"

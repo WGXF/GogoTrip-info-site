@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { SectionId } from '../types';
+import { SectionId } from '@/types';
 import { 
   Sparkles, 
   DollarSign, 
@@ -36,12 +36,6 @@ const features = [
     color: 'bg-orange-100 text-orange-600'
   },
   {
-    icon: ClipboardCheck,
-    title: 'Smart Checklists',
-    description: 'Create to-do lists for packing or tasks, and set reminder times so you never miss a beat.',
-    color: 'bg-rose-100 text-rose-600'
-  },
-  {
     icon: CalendarRange,
     title: 'Calendar Sync',
     description: 'Add your planned trips directly to your personal calendar and manage your full itinerary in one place.',
@@ -63,9 +57,9 @@ const Features: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap items-stretch justify-center gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
+            <div key={index} className="w-full sm:w-[45%] lg:w-[30%] bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
               <div className={`w-12 h-12 rounded-xl ${feature.color} flex items-center justify-center mb-6`}>
                 <feature.icon className="w-6 h-6" />
               </div>

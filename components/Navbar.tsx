@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Plane, Menu, X } from 'lucide-react';
-import { Page } from '../types';
+import { Page } from '@/types';
+import LogoSvg from '@/icon/logo/logo.svg';
 
 interface NavbarProps {
   activePage: Page;
@@ -43,9 +44,7 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavClick('home')}>
-          <div className="bg-blue-600 p-2 rounded-lg">
-            <Plane className="w-6 h-6 text-white" />
-          </div>
+            <img src={LogoSvg} alt="GogoTrip Logo" className="w-10 h-10 rounded-xl" />         
           <span className={`text-xl font-bold ${isScrolled || activePage !== 'home' ? 'text-slate-900' : 'text-slate-900 lg:text-white'}`}>
             GogoTrip
           </span>
@@ -103,7 +102,7 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate }) => {
             rel="noopener noreferrer"
             className="text-center px-5 py-3 bg-blue-600 text-white rounded-lg font-medium"
           >
-            Launch App
+            Launch GogoTrip
           </a>
         </div>
       )}

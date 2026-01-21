@@ -1,7 +1,7 @@
-// 集中管理配置的文件
+// Centralized configuration file
 
-// 从环境变量读取，如果没有设置，则使用默认值作为后备
-export const API_BASE_URL ='https://gogotrip.teocodes.com';
+// Read from environment variables, use default values as fallback if not set
+export const API_BASE_URL = 'http://127.0.0.1:5000';
 
-// 在这里放其他的全局配置
+// Place other global configuration here
 export const APP_NAME = "GogoTrip";

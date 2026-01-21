@@ -1,8 +1,54 @@
-
 import React, { useState } from 'react';
-import { SectionId, TravelTip } from '../types';
-import { generateTravelPreview } from '../services/geminiService';
+// import { SectionId, TravelTip } from '../types'; // 移除外部引用
+// import { generateTravelPreview } from '../services/geminiService'; 
 import { Search, Loader2, MapPin, Coffee, Star } from 'lucide-react';
+
+// --- 类型定义 (Type Definitions) ---
+// 由于这是一个独立的演示文件，我们将类型直接定义在这里
+export enum SectionId {
+  HERO = 'hero',
+  FEATURES = 'features',
+  DEMO = 'demo',
+  TESTIMONIALS = 'testimonials',
+  CTA = 'cta',
+  FOOTER = 'footer',
+}
+
+export interface TravelTip {
+  category: string;
+  name: string;
+  description: string;
+}
+
+// --- 模拟数据配置 (Mock Data Configuration) ---
+const MOCK_DATA: Record<string, TravelTip[]> = {
+  "paris": [
+    { category: "Local Bite", name: "Du Pain et des Idées", description: "Famous bakery known for its pistachio escargot pastries and vintage decor." },
+    { category: "Hidden Gem", name: "Musée de la Vie Romantique", description: "A charming museum dedicated to the Romantic era with a quiet garden tea room." },
+    { category: "Must See", name: "Sainte-Chapelle", description: "Stunning 13th-century stained glass windows, often less crowded than Notre Dame." }
+  ],
+  "kyoto": [
+    { category: "Local Bite", name: "Nishiki Market", description: "Known as 'Kyoto's Kitchen', try the taco tamago (octopus with egg) or soy milk donuts." },
+    { category: "Hidden Gem", name: "Otagi Nenbutsu-ji", description: "A whimsical temple in Arashiyama featuring 1,200 unique, hand-carved stone statues." },
+    { category: "Must See", name: "Fushimi Inari at Night", description: "Visit the shrine after sunset to see the torii gates lit up and avoid the crowds." }
+  ],
+  "austin": [
+    { category: "Local Bite", name: "Franklin Barbecue", description: "Legendary brisket that people line up for hours to taste. Get there early!" },
+    { category: "Hidden Gem", name: "Mount Bonnell", description: "A short hike up a limestone height offering panoramic views of the Colorado River." },
+    { category: "Must See", name: "Barton Springs Pool", description: "A recreational outdoor swimming pool filled entirely with water from nearby natural springs." }
+  ],
+  "tokyo": [
+    { category: "Local Bite", name: "Omoide Yokocho", description: "A narrow alleyway in Shinjuku packed with tiny yakitori stalls and nostalgic vibes." },
+    { category: "Hidden Gem", name: "Todoroki Valley", description: "The only gorge in Tokyo's 23 wards, offering a peaceful nature walk just minutes from the city." },
+    { category: "Must See", name: "TeamLab Planets", description: "An immersive digital art museum where you walk through water and crystal lights." }
+  ],
+  // 默认回复 (Fallback for unknown cities)
+  "default": [
+    { category: "Local Bite", name: "Central Market Hall", description: "The bustling heart of the local food scene, offering fresh produce and regional delicacies." },
+    { category: "Hidden Gem", name: "Old Town Arts District", description: "A revitalized neighborhood full of street art, indie galleries, and quirky cafes." },
+    { category: "Must See", name: "City Botanic Gardens", description: "A peaceful green oasis in the middle of the urban jungle, perfect for a sunset stroll." }
+  ]
+};
 
 const GeminiDemo: React.FC = () => {
   const [destination, setDestination] = useState('');
@@ -18,14 +64,20 @@ const GeminiDemo: React.FC = () => {
     setError(null);
     setTips(null);
 
-    try {
-      const result = await generateTravelPreview(destination);
-      setTips(result);
-    } catch (err) {
-      setError("We couldn't reach our AI guide at the moment. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+    // 模拟 API 请求 (Simulate API Request)
+    setTimeout(() => {
+      try {
+        const key = destination.toLowerCase().trim();
+        // 查找匹配的模拟数据，如果没有则使用默认数据
+        const result = MOCK_DATA[key] || MOCK_DATA["default"];
+        
+        setTips(result);
+      } catch (err) {
+        setError("We couldn't reach our AI guide at the moment. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    }, 1500); // 1.5秒延迟，模拟思考时间
   };
 
   const getIcon = (category: string) => {

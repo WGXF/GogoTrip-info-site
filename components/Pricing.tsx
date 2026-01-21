@@ -1,7 +1,7 @@
 import React from 'react';
 import { Check, X } from 'lucide-react';
 
-const Pricing: React.FC = () => {
+const Pricing = () => {
   const plans = [
     {
       name: 'Traveler',
@@ -9,7 +9,6 @@ const Pricing: React.FC = () => {
       period: 'forever',
       description: 'Perfect for planning your yearly vacation.',
       features: [
-        '3 AI Trip Plans per month',
         'Basic Itinerary Builder',
         'Smart Checklists',
         'Standard Support'
@@ -17,28 +16,71 @@ const Pricing: React.FC = () => {
       notIncluded: [
         'Real-time Budget Tracking',
         'Instant Translation',
-        'Calendar Sync'
+        'Ads-free Experience',
+        'Real-time Translation'
       ],
       cta: 'Start for Free',
+      href: 'https://gogotrip.teocodes.com/chat',
       popular: false
     },
     {
-      name: 'Explorer',
-      price: '$9.99',
+      name: 'Monthly',
+      price: 'RM 19',
       period: 'per month',
-      description: 'For the frequent flyer who needs flexibility.',
+      description: 'Gogotrip Premium Access for 1 month.',
       features: [
-        'Unlimited AI Trip Plans',
         'Smart Budget Tracking',
         'Instant AI Translation',
         'Priority Support',
         'Ad-free Experience',
         'Advanced Calendar Sync',
+        'Real-time Translation',
         'Checklists with Reminders'
       ],
       notIncluded: [],
       cta: 'Go Pro',
+      href: 'https://gogotrip.teocodes.com/billing',
+      popular: false
+    },
+    {
+      name: 'Annual',
+      price: 'RM 200',
+      period: 'per year',
+      description: 'Gogotrip Premium Access for 1 year. Save more and enjoy privileged access. You are a loyal user.',
+      features: [
+        'Everything in Monthly',
+        'Smart Budget Tracking',
+        'Instant AI Translation',
+        'Priority Support',
+        'Ad-free Experience',
+        'Advanced Calendar Sync',
+        'Real-time Translation',
+        'Checklists with Reminders'
+      ],
+      notIncluded: [],
+      cta: 'Go Pro',
+      href: 'https://gogotrip.teocodes.com/billing',
       popular: true
+    },
+    {
+      name: 'Super Good Lifetime Package',
+      price: 'RM 999',
+      period: 'one-time',
+      description: 'Gogotrip Premium Lifetime Access. You are a super good user.',
+      features: [
+        'Everything in Yearly',
+        'Smart Budget Tracking',
+        'Instant AI Translation',
+        'Priority Support',
+        'Ad-free Experience',
+        'Advanced Calendar Sync',
+        'Real-time Translation',
+        'Checklists with Reminders'
+      ],
+      notIncluded: [],
+      cta: 'Go Pro',
+      href: 'https://gogotrip.teocodes.com/billing',
+      popular: false
     }
   ];
 
@@ -54,7 +96,7 @@ const Pricing: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {plans.map((plan, index) => (
             <div 
               key={index} 
@@ -94,15 +136,16 @@ const Pricing: React.FC = () => {
                 ))}
               </div>
 
-              <button 
-                className={`w-full py-3 rounded-xl font-semibold transition-all ${
+              <a 
+                href={plan.href}
+                className={`block w-full py-3 rounded-xl font-semibold text-center transition-all ${
                   plan.popular 
                     ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/30' 
                     : 'bg-slate-100 hover:bg-slate-200 text-slate-900'
                 }`}
               >
                 {plan.cta}
-              </button>
+              </a>
             </div>
           ))}
         </div>

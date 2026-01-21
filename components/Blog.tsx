@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Calendar, Eye, ArrowRight, Loader2, AlertCircle, X, User } from 'lucide-react';
+import { API_BASE_URL } from '../config';
 
 interface Article {
   id: string;
@@ -17,9 +18,6 @@ const Blog: React.FC = () => {
   const [error, setError] = useState('');
   
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
-
-  // 🔴 确保这里是你的 Flask 后端地址
-  const API_BASE_URL = 'http://127.0.0.1:5000'; 
 
   useEffect(() => {
     fetch(`${API_BASE_URL}/api/articles/public`)
@@ -56,26 +54,26 @@ const Blog: React.FC = () => {
     return plainText.substring(0, maxLength).trim() + '...';
   };
 
-  // ✨✨✨ 修复核心：处理文章点击逻辑 ✨✨✨
+  // ✨✨✨ Core fix: Handle article click logic ✨✨✨
   const handleArticleClick = (article: Article) => {
     console.log('clicked article:', article);
-    
-    // 1. 立即打开弹窗 (Optimistic UI)
+
+    // 1. Open modal immediately (Optimistic UI)
     setSelectedArticle(article);
 
-    // 2. 后台请求 API 以增加阅读量
-    // 修复：添加时间戳参数 (?t=...) 强制浏览器不使用缓存，确保每次都触发后端 +1
+    // 2. Background API request to increment view count
+    // Fix: Add timestamp parameter (?t=...) to force browser not to use cache, ensure backend +1 is triggered every time
     fetch(`${API_BASE_URL}/api/info/articles/${article.id}?t=${new Date().getTime()}`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to record view');
         return res.json();
       })
       .then((updatedArticle: Article) => {
-        // 3. 更新本地列表中的数据
-        setArticles(prevArticles => 
+        // 3. Update data in local list
+        setArticles(prevArticles =>
           prevArticles.map(a => a.id === updatedArticle.id ? updatedArticle : a)
         );
-        // 同时更新当前弹窗的数据 (确保 View 数在弹窗里也是最新的)
+        // Also update current modal data (ensure View count in modal is also up-to-date)
         setSelectedArticle(updatedArticle);
       })
       .catch(err => {
@@ -164,7 +162,7 @@ const Blog: React.FC = () => {
         )}
       </div>
 
-      {/* ✨ Modal 弹窗 */}
+      {/* ✨ Modal popup */}
       {selectedArticle && (
         <div className="fixed inset-0 z-[100] flex justify-center items-end sm:items-center">
           <div 
@@ -229,7 +227,7 @@ const Blog: React.FC = () => {
         </div>
       )}
 
-      {/* 样式部分保持不变 */}
+      {/* Styles section remains unchanged */}
       <style>{`
         .article-content { color: #475569; line-height: 1.8; }
         .article-content h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-top: 1.5rem; margin-bottom: 1rem; }
